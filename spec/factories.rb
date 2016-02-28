@@ -10,13 +10,11 @@ FactoryGirl.define do
     last_name "MyString"
     group nil
   end
+
   factory :group do
     name "MyString"
-    user nil
+    user
   end
-
-
-
 
   sequence :email do |n|
     "person#{n}@example.com"
