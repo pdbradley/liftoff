@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.3.0"
 
+gem "haml-rails", "~> 0.9"
 gem "twitter-bootstrap-rails"
 gem "clearance"
 gem "autoprefixer-rails"
