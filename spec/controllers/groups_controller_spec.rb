@@ -86,14 +86,14 @@ RSpec.describe GroupsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(:group, name: 'Whee')
       }
 
       it "updates the requested group" do
         group = Group.create! valid_attributes
         put :update, {:id => group.to_param, :group => new_attributes}
         group.reload
-        skip("Add assertions for updated state")
+        expect(group.name).to eq 'Whee'
       end
 
       it "assigns the requested group as @group" do
