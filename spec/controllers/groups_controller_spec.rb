@@ -20,21 +20,13 @@ RSpec.describe GroupsController, type: :controller do
   let(:valid_session) { {} }
 
   before(:each) do
-    sign_in
+    sign_in_as(user)
   end
   describe "GET #index" do
     it "assigns all groups as @groups" do
       group = Group.create! valid_attributes
       get :index, {}
       expect(assigns(:groups)).to eq([group])
-    end
-  end
-
-  describe "GET #show" do
-    it "assigns the requested group as @group" do
-      group = Group.create! valid_attributes
-      get :show, {:id => group.to_param}
-      expect(assigns(:group)).to eq(group)
     end
   end
 
@@ -69,7 +61,7 @@ RSpec.describe GroupsController, type: :controller do
 
       it "redirects to the created group" do
         post :create, {:group => valid_attributes}
-        expect(response).to redirect_to(Group.last)
+        expect(response).to redirect_to groups_path
       end
     end
 
@@ -108,7 +100,7 @@ RSpec.describe GroupsController, type: :controller do
       it "redirects to the group" do
         group = Group.create! valid_attributes
         put :update, {:id => group.to_param, :group => valid_attributes}
-        expect(response).to redirect_to(group)
+        expect(response).to redirect_to(edit_group_path(group))
       end
     end
 

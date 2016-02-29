@@ -1,19 +1,9 @@
-%h1 Listing groups
+%h3 Your Liftoff Groups
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @groups.each do |group|
-      %tr
-        %td= link_to 'Show', group
-        %td= link_to 'Edit', edit_group_path(group)
-        %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+%ul
+  - @groups.each do |group|
+    %li
+      %td= link_to group.name, edit_group_path(group)
 %br
 
-= link_to 'New Group', new_group_path
+= link_to 'Add Group', new_group_path

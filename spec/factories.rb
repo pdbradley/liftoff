@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :group do
-    name "MyString"
+    sequence(:name) {|n| "Group{n}"}
     user
   end
 

@@ -5,7 +5,7 @@ feature 'User manages groups' do
   scenario "User creates a group" do
     user = create(:user)
     visit groups_path(as: user)
-    click_link "New Group"
+    click_link "Add Group"
     fill_in "Name", with: "Group 1"
     click_button "Create Group"
 
