@@ -27,8 +27,9 @@
               %a{:href => page_path('about')} About
             - if signed_in?
               %li 
-                Signed in as: #{current_user.email}
-                \#{button_to 'Sign out', sign_out_path, method: :delete}
+                = link_to 'Groups', groups_path
+              %li 
+                = link_to 'Sign out', sign_out_path, method: :delete
             - else
               %li
                 = link_to 'Sign in', sign_in_path

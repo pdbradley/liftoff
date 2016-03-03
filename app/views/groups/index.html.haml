@@ -1,9 +1,13 @@
 %h3 Your Liftoff Groups
 
-%ul
+%table.table-condensed.table-bordered.table-striped
+  %tr
+    %th Name
+    %th
   - @groups.each do |group|
-    %li
+    %tr
       %td= link_to group.name, edit_group_path(group)
-%br
+      %td= "#{group.num_members} members"
 
+%br
 = link_to 'Add Group', new_group_path

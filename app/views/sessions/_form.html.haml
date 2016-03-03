@@ -1,0 +1,12 @@
+= simple_form_for :session, url: session_path do |form| 
+  = form.input :email
+  = form.input :password
+  = form.button :submit 
+%br
+%br
+.other-links
+  - if Clearance.configuration.allow_sign_up? 
+    = link_to t(".sign_up"), sign_up_path 
+    %br
+    %br
+    = link_to t(".forgot_password"), new_password_path 
