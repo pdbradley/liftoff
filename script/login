@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'capybara'
+
+session = Capybara::Session.new(:selenium)
+session.driver.class.class_eval { def quit; end }
+session.visit('http://localhost:3000')
+
+session.click_link "Sign in"
+session.fill_in "Email", with: "person1@example.com"
+session.fill_in "Password", with: "123123"
+
+session.click_button "Sign in"

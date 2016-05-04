@@ -1,0 +1,9 @@
+= @group.name
+Members
+
+= link_to "Add Member", new_group_member_path(group: @group)
+
+- @group.members.each do |member|
+  = member.first_name
+  = member.last_name
+  = member.phone_number

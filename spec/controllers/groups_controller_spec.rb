@@ -100,7 +100,7 @@ RSpec.describe GroupsController, type: :controller do
       it "redirects to the group" do
         group = Group.create! valid_attributes
         put :update, {:id => group.to_param, :group => valid_attributes}
-        expect(response).to redirect_to(edit_group_path(group))
+        expect(response).to redirect_to groups_path
       end
     end
 

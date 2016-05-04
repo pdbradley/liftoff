@@ -1,0 +1,10 @@
+= simple_form_for [@group, @member] do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :phone_number, as: :tel
+  = f.button :submit
+
+:javascript
+  $(document).ready(function() {
+    $("#member_phone_number").mask("(999) 999-9999");
+  });

@@ -5,6 +5,7 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "NOODP", :name => "ROBOTS"}/
     %meta{:content => "initial-scale=1", :name => "viewport"}/
+    = render "javascript"
     %title= title
     = stylesheet_link_tag :application, media: "all"
     = csrf_meta_tags
@@ -27,8 +28,9 @@
               %a{:href => page_path('about')} About
             - if signed_in?
               %li 
-                Signed in as: #{current_user.email}
-                \#{button_to 'Sign out', sign_out_path, method: :delete}
+                = link_to 'Groups', groups_path
+              %li 
+                #{link_to 'Sign out', sign_out_path, method: :delete}
             - else
               %li
                 = link_to 'Sign in', sign_in_path
@@ -39,7 +41,6 @@
         .col-lg-12
           = render "flashes"
           = yield
-          = render "javascript"
 
 
 

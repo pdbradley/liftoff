@@ -1,0 +1,13 @@
+
+
+TODO
+test authentication for group creation
+test authentication for member CRUD
+validation for member name
+validation for member phone number format etc.
+
+
+
+DONE
+
+
