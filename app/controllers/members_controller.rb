@@ -21,6 +21,22 @@ class MembersController < ApplicationController
     end
   end
 
+  def edit
+    @group = current_user.groups.find(params[:group_id])
+    @member = @group.members.find(params[:id])
+  end
+
+  def update
+    @group = current_user.groups.find(params[:group_id])
+    @member = @group.members.find(params[:id])
+    if @member.update(member_params)
+      redirect_to group_members_path, notice: 'Member was successfully updated.'
+    else
+      render :edit
+    end
+
+  end
+
   private
 
     def member_params

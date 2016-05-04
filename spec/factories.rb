@@ -5,10 +5,9 @@ FactoryGirl.define do
   end
 
   factory :member do
-    phone_number "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    group nil
+    phone_number "4046674875"
+    first_name
+    last_name
   end
 
   factory :group do
@@ -18,5 +17,12 @@ FactoryGirl.define do
 
   sequence :email do |n|
     "person#{n}@example.com"
+  end
+
+  sequence :first_name do |n|
+    "FirstName #{n}"
+  end
+  sequence :last_name do |n|
+    "LastName #{n}"
   end
 end
