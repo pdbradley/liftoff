@@ -30,12 +30,19 @@ class MembersController < ApplicationController
     @group = current_user.groups.find(params[:group_id])
     @member = @group.members.find(params[:id])
     if @member.update(member_params)
-      redirect_to group_members_path, notice: 'Member was successfully updated.'
+      redirect_to group_members_path(group: @group), notice: 'Member was successfully updated.'
     else
       render :edit
     end
-
   end
+
+  def destroy
+    @group = current_user.groups.find(params[:group_id])
+    @member = @group.members.find(params[:id])
+    @member.destroy
+    redirect_to group_members_path(group: @group), notice: 'Member was successfully destroyed.'
+  end
+
 
   private
 
@@ -43,27 +50,6 @@ class MembersController < ApplicationController
       params.require(:member).permit(:last_name, :first_name, :phone_number, :group_id)
     end
 end
-
-  # def edit
-  # end
-
-  # def create
-  #   @group = current_user.groups.build(group_params)
-
-  #   if @group.save
-  #     redirect_to groups_path, notice: 'Group was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # def update
-  #   if @group.update(group_params)
-  #     redirect_to groups_path, notice: 'Group was successfully updated.'
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   # def destroy
   #   @group.destroy

@@ -8,3 +8,4 @@ Members
   = member.last_name
   = member.phone_number
   = link_to "Edit", edit_group_member_path(@group, member)
+  = link_to "Delete", [@group, member], method: :delete, :data => { :confirm => 'Are you sure?' }

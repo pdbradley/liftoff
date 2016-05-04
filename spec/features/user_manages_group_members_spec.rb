@@ -39,8 +39,16 @@ feature 'User manages members' do
 
     expect(page).to have_content "updated"
     expect(page).to have_content "Sally"
+  end
 
+  scenario "User deletes a group member" do
+    user = create(:user)
+    group = create(:group, user: user)
+    member = create(:member, group: group)
+    visit group_members_path(group_id: group.id, as: user)
+    click_link "Delete"
 
+    expect(Member.count).to eq 0
   end
 
 end
