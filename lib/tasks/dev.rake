@@ -5,8 +5,13 @@ if Rails.env.development? || Rails.env.test?
     desc "Sample data for local development environment"
     task prime: "db:setup" do
       include FactoryGirl::Syntax::Methods
+      setup_users
+      user = User.first
+      create(:group, user: user)
+    end
 
-      # create(:user, email: "user@example.com", password: "password")
+    def setup_users
+      create(:user)
     end
   end
 end
